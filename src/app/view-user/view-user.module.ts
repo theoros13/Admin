@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddPageRoutingModule } from './add-routing.module';
+import { ViewUserPageRoutingModule } from './view-user-routing.module';
 
-import { AddPage } from './add.page';
-import { QRCodeModule } from 'angularx-qrcode';
+import { ViewUserPage } from './view-user.page';
 
 @NgModule({
   imports: [
-    QRCodeModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    AddPageRoutingModule
+    ViewUserPageRoutingModule
   ],
-  declarations: [AddPage]
+  declarations: [ViewUserPage]
 })
-export class AddPageModule {}
+export class ViewUserPageModule {}

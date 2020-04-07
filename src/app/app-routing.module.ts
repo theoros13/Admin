@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ModifiUserPageModule } from './modifi-user/modifi-user.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -12,12 +13,23 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
   },
+  {
+    path: 'modifi-user',
+    loadChildren: () => import('./modifi-user/modifi-user.module').then( m => m.ModifiUserPageModule)
+  },
+  {
+    path: 'view-user',
+    loadChildren: () => import('./view-user/view-user.module').then( m => m.ViewUserPageModule)
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  entryComponents : [
+    
+  ]
 })
 export class AppRoutingModule { }

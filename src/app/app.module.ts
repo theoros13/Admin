@@ -13,7 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
+import { ListPageModule } from '../app/list/list.module'; 
+import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module'; 
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    ListPageModule,
+    ModifiUserPageModule
   ],
   providers: [
     StatusBar,

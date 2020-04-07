@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modifier</ion-title>
+    <ion-button (click)="dismiss()" fill="outline" slot="end">Fermer</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nom</ion-label>
+    <ion-input [(ngModel)]="user.Nom" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Prenom</ion-label>
+    <ion-input [(ngModel)]="user.Prenom" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">telephone</ion-label>
+    <ion-input [(ngModel)]="user.Tel" pattern="06([0-9]{8})" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Ville</ion-label>
+    <ion-input [(ngModel)]="user.Ville" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Campagne</ion-label>
+    <ion-input [(ngModel)]="user.Campagne" required=true></ion-input>
+  </ion-item>
+  <br>
+  <ion-button (click)="modifier()" expand="block">Modifier</ion-button>
+</ion-content>

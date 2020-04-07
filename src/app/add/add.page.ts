@@ -19,6 +19,7 @@ export class AddPage implements OnInit {
   ville:string = null;
   campagne:string = null;
 
+
   constructor(
     private crudService: CrudService, 
     public loadingController: LoadingController, 
@@ -29,7 +30,7 @@ export class AddPage implements OnInit {
   }
 
   async ajouter(){
-    if (this.nom != null || this.prenom != null || this.tel != null || this.ville != null || this.campagne != null) {
+    if (this.nom != null && this.prenom != null && this.tel != null && this.ville != null && this.campagne != null) {
       let record = {};
       record['nom'] = this.nom;
       record['prenom'] = this.prenom;
@@ -54,6 +55,7 @@ export class AddPage implements OnInit {
     }
     
   }
+
 
   
 

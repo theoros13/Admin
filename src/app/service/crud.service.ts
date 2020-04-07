@@ -19,12 +19,24 @@ export class CrudService {
   get_all_livreur() {
     return this.firestore.collection('Utilisateurs').snapshotChanges();
   }
- 
-  update_Student(recordID,record){
-    this.firestore.doc('Students/' + recordID).update(record);
+
+  get_all_livreur_nom() {
+    return this.firestore.collection('Utilisateurs', ref => ref.orderBy('nom')).snapshotChanges();
+  }
+
+  get_all_livreur_ville() {
+    return this.firestore.collection('Utilisateurs', ref => ref.orderBy('ville')).snapshotChanges();
+  }
+
+  get_all_livreur_campagne() {
+    return this.firestore.collection('Utilisateurs', ref => ref.orderBy('campagne')).snapshotChanges();
   }
  
-  delete_Student(record_id) {
-    this.firestore.doc('Students/' + record_id).delete();
+  update_livreur(recordID,record){
+    return this.firestore.doc('Utilisateurs/' + recordID).update(record);
+  }
+ 
+  delete_Livreur(record_id) {
+    this.firestore.doc('Utilisateurs/' + record_id).delete();
   }
 }
