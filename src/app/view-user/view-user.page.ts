@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CrudService } from './../service/crud.service';
 import { NavParams } from '@ionic/angular';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-view-user',
@@ -24,7 +25,7 @@ export class ViewUserPage implements OnInit {
   ngOnInit() {
     this.crudService.get_work_for_user(this.user.id).subscribe(data => {
  
-      this.works = data.map(e => {
+      this.works = data.map(e => {        
         return {
           id: e.payload.doc.id,
           id_user: e.payload.doc.data()['id_user'],

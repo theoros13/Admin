@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -16,6 +16,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ListPageModule } from '../app/list/list.module'; 
 import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module'; 
 import { ViewUserPageModule } from '../app/view-user/view-user.module'; 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +35,7 @@ import { ViewUserPageModule } from '../app/view-user/view-user.module';
     ViewUserPageModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: "fr-FR" },
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -1,10 +1,27 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Detail</ion-title>
-    <ion-button (click)="dismiss()" fill="outline" slot="end">Fermer</ion-button>
+    
+    <ion-button  fill="outline" (click)="dismiss()" slot="end"><ion-icon  name="arrow-forward-circle-outline" ></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-label *ngFor="let item of works">{{ item.time_start.seconds * 1000 | date:'yyyy/MM/dd h:mm:ss' }}</ion-label>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ user.Nom }} {{ user.Prenom }} - {{ user.Tel }}</ion-card-title>
+      <ion-card-subtitle> {{ user.Ville }} - {{ user.Campagne }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div *ngFor="let item of works">
+        <ion-label > {{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}} : {{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} ({{ (item.time_end.seconds -item.time_start.seconds)*1000 | date:'hh:mm a'}})</ion-label>
+        <br>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+  
 </ion-content>
