@@ -39,4 +39,9 @@ export class CrudService {
   delete_Livreur(record_id) {
     this.firestore.doc('Utilisateurs/' + record_id).delete();
   }
+
+  get_work_for_user(userId){
+    console.log(userId);
+    return this.firestore.collection('Work', ref => ref.where('id_user', '==', userId)).snapshotChanges();
+  }
 }

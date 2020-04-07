@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ListPageModule } from '../app/list/list.module'; 
 import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module'; 
+import { ViewUserPageModule } from '../app/view-user/view-user.module'; 
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,8 @@ import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ListPageModule,
-    ModifiUserPageModule
+    ModifiUserPageModule,
+    ViewUserPageModule
   ],
   providers: [
     StatusBar,

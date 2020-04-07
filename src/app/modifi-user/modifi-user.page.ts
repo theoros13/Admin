@@ -28,7 +28,7 @@ export class ModifiUserPage implements OnInit {
 
   async modifier(){
     
-    if (this.user.Nom != null && this.user.Prenom != null && this.user.Tel != null && this.user.Ville != null && this.user.Campagne != null) {
+    if (this.user.Nom != "" && this.user.Prenom != "" && this.user.Tel != "" && this.user.Ville != "" && this.user.Campagne != "") {
       let record = {};
       record['nom'] = this.user.Nom;
       record['prenom'] = this.user.Prenom;

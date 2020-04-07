@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>view_user</ion-title>
+    <ion-title>Detail</ion-title>
+    <ion-button (click)="dismiss()" fill="outline" slot="end">Fermer</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-label *ngFor="let item of works">{{ item.time_start.seconds * 1000 | date:'yyyy/MM/dd h:mm:ss' }}</ion-label>
 </ion-content>

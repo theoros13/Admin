@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from './../service/crud.service';
 import { ModalController } from '@ionic/angular';
 import { ModifiUserPage } from '../modifi-user/modifi-user.page';
+import { ViewUserPage } from '../view-user/view-user.page'; 
 
 @Component({
   selector: 'app-list',
@@ -100,6 +101,15 @@ export class ListPage implements OnInit {
     console.log(item);    
     const modal = await this.modalController.create({
       component: ModifiUserPage,
+      componentProps: {'user' : item}
+    });
+    return await modal.present();
+  }
+
+  async view(item:any){
+    console.log(item);    
+    const modal = await this.modalController.create({
+      component: ViewUserPage,
       componentProps: {'user' : item}
     });
     return await modal.present();
