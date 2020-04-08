@@ -42,6 +42,11 @@ export class AppComponent {
         title : "Liste des Livreurs",
         url   : "/list",
         icon  : "list"
+      },
+      {
+        title : "Scanner un livreur",
+        url   : "/scan-user",
+        icon  : "scan"
       }
     ]
   }

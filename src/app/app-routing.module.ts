@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'view-user',
     loadChildren: () => import('./view-user/view-user.module').then( m => m.ViewUserPageModule)
   },
+  {
+    path: 'scan-user',
+    loadChildren: () => import('./scan-user/scan-user.module').then( m => m.ScanUserPageModule)
+  },
 ];
 
 @NgModule({

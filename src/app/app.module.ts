@@ -18,6 +18,8 @@ import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module';
 import { ViewUserPageModule } from '../app/view-user/view-user.module'; 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -32,12 +34,14 @@ registerLocaleData(localeFr);
     AngularFireDatabaseModule,
     ListPageModule,
     ModifiUserPageModule,
-    ViewUserPageModule
+    ViewUserPageModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },
     StatusBar,
     SplashScreen,
+    Diagnostic,
+    QRScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
