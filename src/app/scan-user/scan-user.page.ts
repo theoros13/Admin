@@ -58,7 +58,7 @@ export class ScanUserPage implements OnInit {
           this.showCamera = false;
         });
       } else if (status.denied) {
-        // camera permission was permanently denied
+        this.cameraAvailable = false;
       } else {
         // permission was denied, but not permanently. You can ask for permission again at a later time.
       }
