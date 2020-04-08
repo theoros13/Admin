@@ -13,6 +13,7 @@ export class ViewUserPage implements OnInit {
 
   user:any;
   works:any;
+  id:string;
 
   constructor(
     public viewCtrl: ModalController,
@@ -23,6 +24,7 @@ export class ViewUserPage implements OnInit {
   }
 
   ngOnInit() {
+    this.id = this.user.id;
     this.crudService.get_work_for_user(this.user.id).subscribe(data => {
  
       this.works = data.map(e => {        
@@ -35,8 +37,6 @@ export class ViewUserPage implements OnInit {
           photo_end: e.payload.doc.data()['Photo_end']
         };
       })
-      console.log(this.works);
- 
     });
   }
 

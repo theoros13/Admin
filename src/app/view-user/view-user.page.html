@@ -15,6 +15,7 @@
     </ion-card-header>
   
     <ion-card-content>
+      <qrcode [qrdata]="id" [size]="250" [level]="'H'" [elementType]="'img'"></qrcode>
       <div *ngFor="let item of works">
         <ion-label > {{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}} : {{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} ({{ (item.time_end.seconds -item.time_start.seconds)*1000 | date:'hh:mm a'}})</ion-label>
         <br>
