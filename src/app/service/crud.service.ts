@@ -41,7 +41,6 @@ export class CrudService {
   }
 
   get_work_for_user(userId){
-    console.log(userId);
     return this.firestore.collection('Work', ref => ref.where('id_user', '==', userId)).snapshotChanges();
   }
 }
