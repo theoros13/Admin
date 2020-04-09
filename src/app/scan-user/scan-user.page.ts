@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { AlertController } from '@ionic/angular';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+import { ModalController } from '@ionic/angular';
+import { ViewUserPage } from '../view-user/view-user.page';
+import { CrudService } from './../service/crud.service'; 
 
 @Component({
   selector: 'app-scan-user',
@@ -13,11 +16,14 @@ export class ScanUserPage implements OnInit {
   cameraAvailable:boolean = false;
   public showCamera = false;
   public textScanned: string = '';
+  public user:any;
 
   constructor(
     private diagnostic: Diagnostic,
     public alertController: AlertController,
     private qrScanner: QRScanner,
+    public modalController: ModalController,
+    private crudService: CrudService,
     ) { }
 
   async ngOnInit() {
@@ -50,12 +56,22 @@ export class ScanUserPage implements OnInit {
       if (status.authorized) {
         // start scanning
         console.log('Scan en cours...' + JSON.stringify(status));
-        const scanSub = this.qrScanner.scan().subscribe((text: any) => {
-          console.log('Scanned something', text.result);
-          this.textScanned = text.result;
+        const scanSub = this.qrScanner.scan().subscribe((text: string) => {
+          console.log('Scanned something', text);
+
+          this.crudService.get_user_by_id(text).subscribe(reps =>{
+            this.user = reps.data();
+            this.user['id'] = this.textScanned
+            this.view(this.user);
+          })
+
+          this.textScanned = text;
           this.qrScanner.hide(); // hide camera preview
           scanSub.unsubscribe(); // stop scanning
           this.showCamera = false;
+
+          
+
         });
       } else if (status.denied) {
         this.cameraAvailable = false;
@@ -70,5 +86,23 @@ export class ScanUserPage implements OnInit {
     this.showCamera = false;
     this.qrScanner.hide(); // hide camera preview
     this.qrScanner.destroy();
+  }
+
+  test(t:string){
+    this.crudService.get_user_by_id(t).subscribe(reps =>{
+      this.user = reps.data();
+      this.user['id'] = t
+      this.view(this.user);
+    })
+
+    
+  }
+
+  async view(item:any){
+    const modal = await this.modalController.create({
+      component: ViewUserPage,
+      componentProps: {'user' : item}
+    });
+    return await modal.present();
   }
 }

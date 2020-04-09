@@ -26,11 +26,11 @@ export class ListPage implements OnInit {
       this.Livreurs = data.map(e => {
         return {
           id: e.payload.doc.id,
-          Nom: e.payload.doc.data()['nom'],
-          Prenom: e.payload.doc.data()['prenom'],
-          Tel: e.payload.doc.data()['tel'],
-          Ville: e.payload.doc.data()['ville'],
-          Campagne: e.payload.doc.data()['campagne']
+          nom: e.payload.doc.data()['nom'],
+          prenom: e.payload.doc.data()['prenom'],
+          tel: e.payload.doc.data()['tel'],
+          ville: e.payload.doc.data()['ville'],
+          campagne: e.payload.doc.data()['campagne']
         };
       })
       console.log(this.Livreurs);
@@ -45,11 +45,11 @@ export class ListPage implements OnInit {
       this.Livreurs = data.map(e => {
         return {
           id: e.payload.doc.id,
-          Nom: e.payload.doc.data()['nom'],
-          Prenom: e.payload.doc.data()['prenom'],
-          Tel: e.payload.doc.data()['tel'],
-          Ville: e.payload.doc.data()['ville'],
-          Campagne: e.payload.doc.data()['campagne']
+          nom: e.payload.doc.data()['nom'],
+          prenom: e.payload.doc.data()['prenom'],
+          tel: e.payload.doc.data()['tel'],
+          ville: e.payload.doc.data()['ville'],
+          campagne: e.payload.doc.data()['campagne']
         };
       })
       console.log(this.Livreurs);
@@ -63,11 +63,11 @@ export class ListPage implements OnInit {
       this.Livreurs = data.map(e => {
         return {
           id: e.payload.doc.id,
-          Nom: e.payload.doc.data()['nom'],
-          Prenom: e.payload.doc.data()['prenom'],
-          Tel: e.payload.doc.data()['tel'],
-          Ville: e.payload.doc.data()['ville'],
-          Campagne: e.payload.doc.data()['campagne']
+          nom: e.payload.doc.data()['nom'],
+          prenom: e.payload.doc.data()['prenom'],
+          tel: e.payload.doc.data()['tel'],
+          ville: e.payload.doc.data()['ville'],
+          campagne: e.payload.doc.data()['campagne']
         };
       })
       console.log(this.Livreurs);
@@ -80,12 +80,12 @@ export class ListPage implements OnInit {
  
       this.Livreurs = data.map(e => {
         return {
-          Id: e.payload.doc.id,
-          Nom: e.payload.doc.data()['nom'],
-          Prenom: e.payload.doc.data()['prenom'],
-          Tel: e.payload.doc.data()['tel'],
-          Ville: e.payload.doc.data()['ville'],
-          Campagne: e.payload.doc.data()['campagne']
+          id: e.payload.doc.id,
+          nom: e.payload.doc.data()['nom'],
+          prenom: e.payload.doc.data()['prenom'],
+          tel: e.payload.doc.data()['tel'],
+          ville: e.payload.doc.data()['ville'],
+          campagne: e.payload.doc.data()['campagne']
         };
       })
       console.log(this.Livreurs);
@@ -107,7 +107,6 @@ export class ListPage implements OnInit {
   }
 
   async view(item:any){
-    console.log(item);    
     const modal = await this.modalController.create({
       component: ViewUserPage,
       componentProps: {'user' : item}

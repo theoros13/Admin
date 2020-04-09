@@ -28,13 +28,13 @@ export class ModifiUserPage implements OnInit {
 
   async modifier(){
     
-    if (this.user.Nom != "" && this.user.Prenom != "" && this.user.Tel != "" && this.user.Ville != "" && this.user.Campagne != "") {
+    if (this.user.nom != "" && this.user.prenom != "" && this.user.tel != "" && this.user.ville != "" && this.user.campagne != "") {
       let record = {};
-      record['nom'] = this.user.Nom;
-      record['prenom'] = this.user.Prenom;
-      record['tel'] = this.user.Tel;
-      record['ville'] = this.user.Ville;
-      record['campagne'] = this.user.Campagne;
+      record['nom'] = this.user.nom;
+      record['prenom'] = this.user.prenom;
+      record['tel'] = this.user.tel;
+      record['ville'] = this.user.ville;
+      record['campagne'] = this.user.campagne;
 
       const loading = await this.loadingController.create({message: 'Please wait...'});
       loading.present();

@@ -8,23 +8,23 @@
 <ion-content>
   <ion-item>
     <ion-label position="floating">Nom</ion-label>
-    <ion-input [(ngModel)]="user.Nom" required=true></ion-input>
+    <ion-input [(ngModel)]="user.nom" required=true></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Prenom</ion-label>
-    <ion-input [(ngModel)]="user.Prenom" required=true></ion-input>
+    <ion-input [(ngModel)]="user.prenom" required=true></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">telephone</ion-label>
-    <ion-input [(ngModel)]="user.Tel" pattern="06([0-9]{8})" required=true></ion-input>
+    <ion-input [(ngModel)]="user.tel" pattern="0[0-9]([0-9]{8})" required=true></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Ville</ion-label>
-    <ion-input [(ngModel)]="user.Ville" required=true></ion-input>
+    <ion-input [(ngModel)]="user.ville" required=true></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Campagne</ion-label>
-    <ion-input [(ngModel)]="user.Campagne" required=true></ion-input>
+    <ion-input [(ngModel)]="user.campagne" required=true></ion-input>
   </ion-item>
   <br>
   <ion-button (click)="modifier()" expand="block">Modifier</ion-button>

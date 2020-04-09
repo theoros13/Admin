@@ -10,16 +10,17 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>{{ user.Nom }} {{ user.Prenom }} - {{ user.Tel }}</ion-card-title>
-      <ion-card-subtitle> {{ user.Ville }} - {{ user.Campagne }}</ion-card-subtitle>
+      <ion-card-title>{{ user.nom }} {{ user.prenom }} - {{ user.tel }}</ion-card-title>
+      <ion-card-subtitle> {{ user.ville }} - {{ user.campagne }}</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
       <qrcode [qrdata]="id" [size]="250" [level]="'H'" [elementType]="'img'"></qrcode>
       <div *ngFor="let item of works">
-        <ion-label>{{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}} - {{ item.time_end.seconds*1000 | date:'dd/MM/yyyy'}} </ion-label>
         <br>
-        <ion-label >{{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} ({{ ((item.time_end.seconds -item.time_start.seconds)*1000)-3600000 | date:'hh:mm a'}})</ion-label>
+        <ion-text>{{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}} - {{ item.time_end.seconds*1000 | date:'dd/MM/yyyy'}}</ion-text>
+        <br>
+        <ion-text >{{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} ({{ ((item.time_end.seconds -item.time_start.seconds)*1000)-3600000 | date:'hh:mm a'}})</ion-text>
         <br>
       </div>
     </ion-card-content>

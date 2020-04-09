@@ -14,6 +14,9 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        
+      </ion-col>
+      <ion-col>
         <ion-button (click)="tri_nom()">Nom</ion-button>
       </ion-col>
       <ion-col>
@@ -22,12 +25,15 @@
       <ion-col>
         <ion-button (click)="tri_campagne()">Campagne</ion-button>
       </ion-col>
+      <ion-col>
+        
+      </ion-col>
     </ion-row>
   </ion-grid>
   <ion-list>  
     <ion-item-sliding *ngFor="let item of Livreurs">
       <ion-item>
-        <ion-label>{{item.Nom}} {{item.Prenom}} - {{item.Campagne}} - {{item.Ville}}</ion-label>
+        <ion-label>{{item.nom}} {{item.prenom}} - {{item.campagne}} - {{item.ville}}</ion-label>
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option (click)="view(item)"><ion-icon name="eye-outline"></ion-icon></ion-item-option>

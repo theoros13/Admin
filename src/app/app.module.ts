@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ListPageModule } from '../app/list/list.module'; 
 import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module'; 
 import { ViewUserPageModule } from '../app/view-user/view-user.module'; 
+import { ScanUserPageModule } from '../app/scan-user/scan-user.module'; 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
@@ -35,6 +36,7 @@ registerLocaleData(localeFr);
     ListPageModule,
     ModifiUserPageModule,
     ViewUserPageModule,
+    ScanUserPageModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },

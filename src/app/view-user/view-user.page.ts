@@ -26,7 +26,7 @@ export class ViewUserPage implements OnInit {
 
   ngOnInit() {
     this.id = this.user.id;
-    this.crudService.get_work_for_user(this.user.id).subscribe(data => {
+    this.crudService.get_work_for_user(this.id).subscribe(data => {
       
       this.works = data.map(e => {    
         return {
