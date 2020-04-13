@@ -28,7 +28,7 @@
           <br>
           <ion-text>{{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}} - {{ item.time_end.seconds*1000 | date:'dd/MM/yyyy'}}</ion-text>
           <br>
-          <ion-text >{{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} </ion-text>
+          <ion-text >{{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} ({{ ((item.time_end.seconds - item.time_start.seconds) * 1000)-3600000 | date:'hh:mm a'}})</ion-text>
           <br>
         </div>
       </div>
