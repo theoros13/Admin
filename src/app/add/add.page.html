@@ -12,30 +12,30 @@
 
 <ion-item>
   <ion-label position="floating">Nom</ion-label>
-  <ion-input [(ngModel)]="nom" required=true></ion-input>
+  <ion-input [(ngModel)]="nom"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label position="floating">Prenom</ion-label>
-  <ion-input [(ngModel)]="prenom" required=true></ion-input>
+  <ion-input [(ngModel)]="prenom"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label position="floating">telephone</ion-label>
-  <ion-input [(ngModel)]="tel" pattern="0[0-9]([0-9]{8})" required=true></ion-input>
+  <ion-input [(ngModel)]="tel" pattern="0[0-9]([0-9]{8})"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label position="floating">Ville</ion-label>
-  <ion-input [(ngModel)]="ville" required=true></ion-input>
+  <ion-input [(ngModel)]="ville"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label position="floating">Campagne</ion-label>
-  <ion-input [(ngModel)]="campagne" required=true></ion-input>
+  <ion-input [(ngModel)]="campagne"></ion-input>
 </ion-item>
 <br>
 <ion-button (click)="ajouter()" expand="block">Ajouter</ion-button>
 
 <div *ngIf="id">
   <qrcode [qrdata]="id" [size]="250" [level]="'H'" [elementType]="'img'"></qrcode>
-  <p>Faite click droit sur l'image pour enregistrer le QrCode</p>
+  <ion-button (click)="getPng()" size="small">PNG</ion-button>
 </div>
 
 </ion-content>

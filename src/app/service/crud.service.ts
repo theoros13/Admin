@@ -37,6 +37,12 @@ export class CrudService {
   }
  
   delete_Livreur(record_id) {
+    var w = this.firestore.collection('Work', ref => ref.where('id_user', '==', record_id)).snapshotChanges();
+    w.subscribe(data=>{
+      data.map(e=>{
+        this.firestore.doc('Work/' + e.payload.doc.id).delete();
+      });
+    })
     this.firestore.doc('Utilisateurs/' + record_id).delete();
   }
 
@@ -46,5 +52,9 @@ export class CrudService {
 
   get_user_by_id(userId){
     return this.firestore.doc('Utilisateurs/'+userId).get();
+  }
+
+  get_user_by_campage(t){
+    return this.firestore.collection('Utilisateurs', ref => ref.where('campagne', '==', t)).snapshotChanges();
   }
 }

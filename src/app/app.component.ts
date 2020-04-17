@@ -47,6 +47,11 @@ export class AppComponent {
         title : "Scanner un livreur",
         url   : "/scan-user",
         icon  : "scan"
+      },
+      {
+        title : "Extraction data",
+        url   : "/extrac",
+        icon  : "document-text"
       }
     ]
   }

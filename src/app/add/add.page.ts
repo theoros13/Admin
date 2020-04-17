@@ -4,6 +4,10 @@ import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
 import { CrudService } from './../service/crud.service';
+import * as $ from 'jquery';
+import { Platform } from '@ionic/angular';
+import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
   selector: 'app-add',
@@ -18,12 +22,16 @@ export class AddPage implements OnInit {
   tel:string = null;
   ville:string = null;
   campagne:string = null;
-
+  noms:string;
+  prenoms:string;
 
   constructor(
     private crudService: CrudService, 
     public loadingController: LoadingController, 
     public alertController: AlertController,
+    public plt: Platform,
+    public File: File,
+    private socialSharing: SocialSharing,
     ) { }
 
   ngOnInit() {
@@ -42,7 +50,14 @@ export class AddPage implements OnInit {
       loading.present();
       this.crudService.new_livreur(record).then(resp => {
         loading.dismiss();
+        this.noms = this.nom;
+        this.prenoms = this.prenom;
         this.id = resp.id;
+        this.nom = null;
+        this.prenom = null;
+        this.tel = null;
+        this.ville = null;
+        this.campagne = null;
       }); 
     }else{
       const alert = await this.alertController.create({
@@ -56,7 +71,37 @@ export class AddPage implements OnInit {
     
   }
 
+  getPng(){
+    var src = $('img').attr('src')
+    
+    let byteCharacters = window.atob(src.split(',')[1]);
 
-  
+    let byteNumbers = new Array(byteCharacters.length);
+    for (var i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    let byteArray = new Uint8Array(byteNumbers);
+
+    let blob = new Blob([byteArray], {"type": "image/png"});
+
+    if(this.plt.is('cordova')){
+
+      this.File.writeFile(this.File.dataDirectory, this.noms + '-' + this.prenoms+'-qrcode.png', blob, {replace : true}).then(
+        res => {
+          this.socialSharing.share(null, null, res.nativeURL, null);
+        }
+      )
+    
+    }else{
+      let link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('visibility','hidden');
+      link.download = this.noms + '-' + this.prenoms+'-qrcode';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }       
+  } 
 
 }

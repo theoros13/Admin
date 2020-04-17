@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'scan-user',
     loadChildren: () => import('./scan-user/scan-user.module').then( m => m.ScanUserPageModule)
   },
+  {
+    path: 'extrac',
+    loadChildren: () => import('./extrac/extrac.module').then( m => m.ExtracPageModule)
+  },
 ];
 
 @NgModule({

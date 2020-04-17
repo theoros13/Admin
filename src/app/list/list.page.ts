@@ -113,5 +113,4 @@ export class ListPage implements OnInit {
     });
     return await modal.present();
   }
-
 }

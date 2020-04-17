@@ -12,26 +12,35 @@
     <ion-card-header>
       <ion-card-title>{{ user.nom }} {{ user.prenom }} - {{ user.tel }}</ion-card-title>
       <ion-card-subtitle> {{ user.ville }} - {{ user.campagne }}</ion-card-subtitle>
+      <ion-button *ngIf="works?.length > 0" (click)="Export()" size="small">Export CSV</ion-button>
     </ion-card-header>
   
     <ion-card-content>
       <qrcode [qrdata]="id" [size]="250" [level]="'H'" [elementType]="'img'"></qrcode>
-      <div *ngFor="let item of works">
-        <div *ngIf="item.time_end == ''">
-          <br>
-          <ion-text>{{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}}</ion-text>
-          <br>
-          <ion-text >{{ item.time_start.seconds*1000 | date:'hh:mm a'}} - en cours</ion-text>
-          <br>
-        </div>
-        <div *ngIf="item.time_end != ''">
-          <br>
-          <ion-text>{{ item.time_start.seconds*1000 | date:'dd/MM/yyyy'}} - {{ item.time_end.seconds*1000 | date:'dd/MM/yyyy'}}</ion-text>
-          <br>
-          <ion-text >{{ item.time_start.seconds*1000 | date:'hh:mm a'}} - {{ item.time_end.seconds*1000 | date:'hh:mm a'}} ({{ ((item.time_end.seconds - item.time_start.seconds) * 1000)-3600000 | date:'hh:mm a'}})</ion-text>
-          <br>
-        </div>
-      </div>
+      <ion-button (click)="getPng()" size="small">PNG</ion-button>
+      <ion-grid *ngIf="works?.length > 0">
+
+        <ion-row>
+          <ion-col>
+            Debut
+          </ion-col>
+          <ion-col>
+            Fin
+          </ion-col>
+          <ion-col>
+            Tmp Travaillé
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let item of works">
+          <ion-col>{{ item.time_start | date:'dd/MM/yyyy HH:mm'}}</ion-col>
+          <ion-col *ngIf="item.time_end == ''">en cours</ion-col>
+          <ion-col *ngIf="item.time_end != ''">{{ item.time_end | date:'dd/MM/yyyy HH:mm'}}</ion-col>
+          <ion-col *ngIf="item.time_end != ''">{{ item.time_sep | date:'HH:mm:ss'}}</ion-col>
+          <ion-col *ngIf="item.time_end == ''"></ion-col>
+        </ion-row>
+
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 

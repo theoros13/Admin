@@ -21,6 +21,11 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { DatePipe } from '@angular/common';
+
+
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -44,6 +49,9 @@ registerLocaleData(localeFr);
     SplashScreen,
     Diagnostic,
     QRScanner,
+    File,
+    SocialSharing,
+    DatePipe,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
