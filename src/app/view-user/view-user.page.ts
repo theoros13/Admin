@@ -41,7 +41,9 @@ export class ViewUserPage implements OnInit {
         if(e.payload.doc.data()['Time_end'] == ""){
           return {
             id: e.payload.doc.id,
-            id_user: e.payload.doc.data()['id_user'],
+            nom : this.user.nom,
+            prenom : this.user.prenom,
+            tel : this.user.tel,
             time_start: new Date(e.payload.doc.data()['Time_start']['seconds'] * 1000),
             time_end: '',
             time_sep: ''
@@ -49,7 +51,9 @@ export class ViewUserPage implements OnInit {
         }else{
           return {
             id: e.payload.doc.id,
-            id_user: e.payload.doc.data()['id_user'],
+            nom : this.user.nom,
+            prenom : this.user.prenom,
+            tel : this.user.tel,
             time_start: new Date(e.payload.doc.data()['Time_start']['seconds'] * 1000),
             time_end: new Date(e.payload.doc.data()['Time_end']['seconds'] * 1000),
             time_sep: new Date(((e.payload.doc.data()['Time_end']['seconds']- e.payload.doc.data()['Time_start']['seconds'])*1000) - 3600000)
@@ -72,11 +76,11 @@ export class ViewUserPage implements OnInit {
 
   async Export(){
     
-    let csv_array:string[] = ['id;id_user;debut;fin;tmp_total;'];
+    let csv_array:string[] = ['id;nom;prenom;tel;debut;fin;tmp_total;'];
     for(var i in this.works){
-      csv_array.push(this.works[i]['id'] + ';' +  this.works[i]['id_user'] + ';' + this.datepipe.transform(this.works[i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.works[i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.works[i]['time_sep'], 'HH:mm:ss'));
+      csv_array.push(this.works[i]['id'] + ';' +  this.works[i]['nom'] + ';' +  this.works[i]['prenom'] + ';' +  this.works[i]['tel'] + ';' + this.datepipe.transform(this.works[i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.works[i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.works[i]['time_sep'], 'HH:mm:ss'));
     }
-    let csv:string = csv_array.join("\n");   
+    let csv:string = csv_array.join("\n");      
 
     if(this.plt.is('cordova')){
       this.File.writeFile(this.File.dataDirectory, this.user['nom'] + '-' + this.user['prenom']+'.csv', csv, {replace : true}).then(
@@ -123,7 +127,7 @@ export class ViewUserPage implements OnInit {
         let link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
         link.setAttribute('visibility','hidden');
-        link.download = this.user['nom'] + '-' + this.user['prenom']+'qrcode';
+        link.download = this.user['nom'] + '-' + this.user['prenom']+'-qrcode';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

@@ -50,23 +50,27 @@ export class ExtracPage implements OnInit {
 
         this.crudService.get_work_for_user(e.payload.doc.id).subscribe(data => {
       
-          this.work.push(data.map(e => {   
+          this.work.push(data.map(f => {               
     
-            if(e.payload.doc.data()['Time_end'] == ""){
+            if(f.payload.doc.data()['Time_end'] == ""){
               return {
-                id: e.payload.doc.id,
-                id_user: e.payload.doc.data()['id_user'],
-                time_start: new Date(e.payload.doc.data()['Time_start']['seconds'] * 1000),
+                id: f.payload.doc.id,
+                nom : e.payload.doc.data()['nom'],
+                prenom : e.payload.doc.data()['prenom'],
+                tel : e.payload.doc.data()['tel'],
+                time_start: new Date(f.payload.doc.data()['Time_start']['seconds'] * 1000),
                 time_end: '',
                 time_sep: ''
               };
             }else{
               return {
-                id: e.payload.doc.id,
-                id_user: e.payload.doc.data()['id_user'],
-                time_start: new Date(e.payload.doc.data()['Time_start']['seconds'] * 1000),
-                time_end: new Date(e.payload.doc.data()['Time_end']['seconds'] * 1000),
-                time_sep: new Date(((e.payload.doc.data()['Time_end']['seconds']- e.payload.doc.data()['Time_start']['seconds'])*1000) - 3600000)
+                id: f.payload.doc.id,
+                nom : e.payload.doc.data()['nom'],
+                prenom : e.payload.doc.data()['prenom'],
+                tel : e.payload.doc.data()['tel'],
+                time_start: new Date(f.payload.doc.data()['Time_start']['seconds'] * 1000),
+                time_end: new Date(f.payload.doc.data()['Time_end']['seconds'] * 1000),
+                time_sep: new Date(((f.payload.doc.data()['Time_end']['seconds']- f.payload.doc.data()['Time_start']['seconds'])*1000) - 3600000)
               };
             }
           }));    
@@ -77,15 +81,15 @@ export class ExtracPage implements OnInit {
 
   extract(){
 
-    let csv_array:string[] = ['id;id_user;debut;fin;tmp_total;'];
+    let csv_array:string[] = ['id;nom;prenom;tel;debut;fin;tmp_total;'];
 
     for(var item in this.work){
       for(var i in this.work[item]){
-        csv_array.push(this.work[item][i]['id'] + ';' +  this.work[item][i]['id_user'] + ';' + this.datepipe.transform(this.work[item][i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.work[item][i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.work[item][i]['time_sep'], 'HH:mm:ss'));       
+        csv_array.push(this.work[item][i]['id'] + ';' +  this.work[item][i]['nom'] + ';' +  this.work[item][i]['prenom'] + ';' +  this.work[item][i]['tel'] + ';' + this.datepipe.transform(this.work[item][i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.work[item][i]['time_end'], 'dd/MM/yyyy HH:mm:ss') + ';' + this.datepipe.transform(this.work[item][i]['time_sep'], 'HH:mm:ss'));       
       }
     }   
     let csv = csv_array.join('\n');
-
+    
     if(this.plt.is('cordova')){
       this.File.writeFile(this.File.dataDirectory, this.selected+'.csv', csv, {replace : true}).then(
         res => {
@@ -100,7 +104,7 @@ export class ExtracPage implements OnInit {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-    }    
+    }  
   }
 
   
