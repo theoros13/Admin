@@ -33,6 +33,9 @@ export class ViewUserPage implements OnInit {
   }
 
   ngOnInit() {
+
+    
+
     this.id = this.user.id;
     this.crudService.get_work_for_user(this.id).subscribe(data => {
       
@@ -73,6 +76,7 @@ export class ViewUserPage implements OnInit {
   dismiss() {
     this.viewCtrl.dismiss();
   }
+  
 
   async Export(){
     
@@ -82,7 +86,7 @@ export class ViewUserPage implements OnInit {
     }
     let csv:string = csv_array.join("\n");      
 
-    if(this.plt.is('cordova')){
+    if(this.plt.is('mobile')){
       this.File.writeFile(this.File.dataDirectory, this.user['nom'] + '-' + this.user['prenom']+'.csv', csv, {replace : true}).then(
         res => {
           this.socialSharing.share(null, null, res.nativeURL, null);
@@ -115,7 +119,7 @@ export class ViewUserPage implements OnInit {
 
       let blob = new Blob([byteArray], {"type": "image/png"});
 
-      if(this.plt.is('cordova')){
+      if(this.plt.is('mobile')){
 
         this.File.writeFile(this.File.dataDirectory, this.user['nom'] + '-' + this.user['prenom']+'-qrcode.png', blob, {replace : true}).then(
           res => {

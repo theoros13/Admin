@@ -90,7 +90,7 @@ export class ExtracPage implements OnInit {
     }   
     let csv = csv_array.join('\n');
     
-    if(this.plt.is('cordova')){
+    if(this.plt.is('mobile')){
       this.File.writeFile(this.File.dataDirectory, this.selected+'.csv', csv, {replace : true}).then(
         res => {
           this.socialSharing.share(null, null, res.nativeURL, null);

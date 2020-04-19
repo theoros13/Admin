@@ -1,8 +1,8 @@
 {
   "name": "Admin",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Rostaing Theo",
+  "homepage": "",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/pwa": "^0.901.1",
     "@angular/router": "~8.2.14",
-    "@ionic-native/chooser": "^4.20.0",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/diagnostic": "^5.23.0",
     "@ionic-native/file": "^5.24.0",
@@ -35,7 +34,6 @@
     "angularx-qrcode": "^2.1.0",
     "cordova-android": "8.1.0",
     "cordova-browser": "6.0.0",
-    "cordova-plugin-chooser": "^1.2.7",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-qrscanner": "^3.0.1",
@@ -95,7 +93,6 @@
         "ANDROID_SUPPORT_VERSION": "28.+"
       },
       "cordova-plugin-qrscanner": {},
-      "cordova-plugin-chooser": {},
       "cordova-plugin-x-socialsharing": {
         "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
       }

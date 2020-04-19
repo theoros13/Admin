@@ -85,7 +85,7 @@ export class AddPage implements OnInit {
 
     let blob = new Blob([byteArray], {"type": "image/png"});
 
-    if(this.plt.is('cordova')){
+    if(this.plt.is('mobile')){
 
       this.File.writeFile(this.File.dataDirectory, this.noms + '-' + this.prenoms+'-qrcode.png', blob, {replace : true}).then(
         res => {
