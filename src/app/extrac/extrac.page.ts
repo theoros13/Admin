@@ -54,7 +54,7 @@ export class ExtracPage implements OnInit {
     
             if(f.payload.doc.data()['Time_end'] == ""){
               return {
-                id: f.payload.doc.id,
+                id: f.payload.doc.data()['id'],
                 nom : e.payload.doc.data()['nom'],
                 prenom : e.payload.doc.data()['prenom'],
                 tel : e.payload.doc.data()['tel'],
@@ -64,7 +64,7 @@ export class ExtracPage implements OnInit {
               };
             }else{
               return {
-                id: f.payload.doc.id,
+                id: f.payload.doc.data()['id'],
                 nom : e.payload.doc.data()['nom'],
                 prenom : e.payload.doc.data()['prenom'],
                 tel : e.payload.doc.data()['tel'],

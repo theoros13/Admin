@@ -32,9 +32,7 @@ export class ListPage implements OnInit {
           ville: e.payload.doc.data()['ville'],
           campagne: e.payload.doc.data()['campagne']
         };
-      })
-      console.log(this.Livreurs);
- 
+      }) 
     });
 
   }
@@ -52,7 +50,6 @@ export class ListPage implements OnInit {
           campagne: e.payload.doc.data()['campagne']
         };
       })
-      console.log(this.Livreurs);
  
     });
   }
@@ -70,7 +67,6 @@ export class ListPage implements OnInit {
           campagne: e.payload.doc.data()['campagne']
         };
       })
-      console.log(this.Livreurs);
  
     });
   }
@@ -88,7 +84,6 @@ export class ListPage implements OnInit {
           campagne: e.payload.doc.data()['campagne']
         };
       })
-      console.log(this.Livreurs);
  
     });
   }
@@ -98,7 +93,6 @@ export class ListPage implements OnInit {
   }
 
   async update(item:any){
-    console.log(item);    
     const modal = await this.modalController.create({
       component: ModifiUserPage,
       componentProps: {'user' : item}

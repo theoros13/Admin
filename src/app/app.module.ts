@@ -1,3 +1,5 @@
+import { ViewEventPageModule } from './view-event/view-event.module';
+import { ViewEventPage } from './view-event/view-event.page';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -15,6 +17,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ListPageModule } from '../app/list/list.module'; 
 import { ModifiUserPageModule } from '../app/modifi-user/modifi-user.module'; 
+import { ModifEventPageModule } from '../app/modif-event/modif-event.module'; 
 import { ViewUserPageModule } from '../app/view-user/view-user.module'; 
 import { ScanUserPageModule } from '../app/scan-user/scan-user.module'; 
 import { registerLocaleData } from '@angular/common';
@@ -42,6 +45,8 @@ registerLocaleData(localeFr);
     ModifiUserPageModule,
     ViewUserPageModule,
     ScanUserPageModule,
+    ViewEventPageModule,
+    ModifEventPageModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "fr-FR" },

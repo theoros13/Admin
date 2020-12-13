@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modifier</ion-title>
+    <ion-button (click)="dismiss()" fill="outline" slot="end">Fermer</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Titre</ion-label>
+    <ion-input [(ngModel)]="event.titre" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Ville</ion-label>
+    <ion-input [(ngModel)]="event.ville" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">description</ion-label>
+    <ion-input [(ngModel)]="event.description" pattern="0[0-9]([0-9]{8})" required=true></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">date et heure</ion-label>
+    <ion-datetime [(ngModel)]="event.date_heure" display-timezone="utc" required=true></ion-datetime>
+  </ion-item>
+  <br>
+  <ion-button expand="block">Modifier</ion-button>
+</ion-content>

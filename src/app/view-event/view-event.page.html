@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detail</ion-title>
+    <ion-button  fill="outline" (click)="dismiss()" slot="end"><ion-icon  name="arrow-forward-circle-outline" ></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{event.titre}} ({{ event.date_heure | date:'dd/MM/yyyy HH:mm'}}) - {{event.ville}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid *ngIf="participant?.length > 0">
+
+        <ion-row>
+          <ion-col>
+            Nom
+          </ion-col>
+          <ion-col>
+            Prenom
+          </ion-col>
+          <ion-col>
+            Téléphone
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let item of participant">
+          <ion-col>{{ item.nom }}</ion-col>
+          <ion-col>{{ item.prenom }}</ion-col>
+          <ion-col>{{ item.tel }}</ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

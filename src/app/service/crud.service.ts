@@ -57,4 +57,17 @@ export class CrudService {
   get_user_by_campage(t){
     return this.firestore.collection('Utilisateurs', ref => ref.where('campagne', '==', t)).snapshotChanges();
   }
+
+  get_all_event(){
+    return this.firestore.collection('evenement').snapshotChanges();
+  }
+
+  del_event(id:string){
+    return this.firestore.doc('evenement/'+id).delete();
+  }
+
+  get_participation(id_event:string){
+    return this.firestore.collection('participation', ref => ref.where('id_evenement', '==', id_event)).snapshotChanges();
+  }
+
 }

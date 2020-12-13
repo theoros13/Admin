@@ -47,19 +47,19 @@ export class ViewUserPage implements OnInit {
             nom : this.user.nom,
             prenom : this.user.prenom,
             tel : this.user.tel,
-            time_start: new Date(e.payload.doc.data()['Time_start']['seconds'] * 1000),
+            time_start: new Date(e.payload.doc.data()['time']['seconds'] * 1000),
             time_end: '',
             time_sep: ''
           };
-        }else{
+        }else{          
           return {
             id: e.payload.doc.id,
             nom : this.user.nom,
             prenom : this.user.prenom,
             tel : this.user.tel,
-            time_start: new Date(e.payload.doc.data()['Time_start']['seconds'] * 1000),
-            time_end: new Date(e.payload.doc.data()['Time_end']['seconds'] * 1000),
-            time_sep: new Date(((e.payload.doc.data()['Time_end']['seconds']- e.payload.doc.data()['Time_start']['seconds'])*1000) - 3600000)
+            time_start: new Date(e.payload.doc.data()['time']['seconds'] * 1000),
+            time_end: new Date(e.payload.doc.data()['time']['seconds'] * 1000),
+            time_sep: new Date(((e.payload.doc.data()['time']['seconds']- e.payload.doc.data()['Time_start']['seconds'])*1000) - 3600000)
           };
         }
       })

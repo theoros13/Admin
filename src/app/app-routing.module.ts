@@ -28,7 +28,23 @@ const routes: Routes = [
   {
     path: 'extrac',
     loadChildren: () => import('./extrac/extrac.module').then( m => m.ExtracPageModule)
+  },  {
+    path: 'event',
+    loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
   },
+  {
+    path: 'view-event',
+    loadChildren: () => import('./view-event/view-event.module').then( m => m.ViewEventPageModule)
+  },
+  {
+    path: 'add-event',
+    loadChildren: () => import('./add-event/add-event.module').then( m => m.AddEventPageModule)
+  },
+  {
+    path: 'modif-event',
+    loadChildren: () => import('./modif-event/modif-event.module').then( m => m.ModifEventPageModule)
+  },
+
 ];
 
 @NgModule({

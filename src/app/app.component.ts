@@ -52,6 +52,11 @@ export class AppComponent {
         title : "Extraction data",
         url   : "/extrac",
         icon  : "document-text"
+      },
+      {
+        title : "Evènement",
+        url   : "/event",
+        icon  : "alert"
       }
     ]
   }
